@@ -15,22 +15,28 @@
                 <h2>Method:</h2>
                 <div class="dropdown">
                     <select>
-                        <option value="merge">Merge</option>
-                        <option value="insertion">Insertion</option>
                         <option value="bubble">Bubble</option>
-                        <option value="quick">Quick</option>
-                        <option value="heap">Heap</option>
-                        <option value="counting">Counting</option>
+                        <option value="soon" disabled>⇓ To be implemented ⇓</option>
+                        <option value="insertion" disabled>Insertion</option>
+                        <option value="merge" disabled>Merge</option>
+                        <option value="quick" disabled>Quick</option>
+                        <option value="heap" disabled>Heap</option>
+                        <option value="counting" disabled>Counting</option>
                     </select>
                 </div>
                     <h2>Size:</h2>
-                    <input type="range" min="20" max="80" value="40" class="array-size">
-                <button class="sort">Sort</button>
+                    <input type="range" min="15" max="45" value="30" class="sliders" id="size">
+                    <h2>Speed:</h2>
+                    <input type="range" min=".2" max="6.2" value="2.2" class="sliders" id="speed">
+                <button class="sort" id="sort"><b>START</b></button>
             </nav>
         </header>
-            <div class="canvas">
-                <div class="bar"></div>
-            </div>
+            <ul class="canvas">
+            </ul>
+            <footer>
+                <a href="https://github.com/renatomce" class="dev"><h2 class="link">⯈ Developed by Renato Cervati</h2></a>
+                <a href="https://github.com/renatomce/sort-algos" class="rep"><h2 class="link">⯈ Repository on GitHub</h2></a>
+            </footer>
         <script src="./src/index.js"></script>
     </body>
 </html>

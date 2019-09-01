@@ -6,7 +6,7 @@
     font-family: 'Work Sans', sans-serif;
 }
 
-header {
+header, footer {
     background-color: #292826;
 }
 
@@ -25,7 +25,7 @@ h1 {
     margin-right: auto;
 }
 
-h2 {
+h2, a {
     color: rgb(209, 209, 209);
     font-size: 14px;
     display: block;
@@ -56,54 +56,92 @@ select:hover, button:hover {
     margin-right: 30px;
 }
 
-/* The slider itself */
-.array-size {
-    -webkit-appearance: none;  /* Override default CSS styles */
+.sliders {
+    -webkit-appearance: none;
     border-radius: 5px;
     appearance: none;
-    width: 10%; /* Full-width */
-    height: 10px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    width: 10%;
+    height: 10px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
     transition: opacity .2s;
     margin-right: 30px;
 }
-  
-  /* Mouse-over effects */
-.array-size:hover {
-    opacity: 1; /* Fully shown on mouse-over */
+
+.sliders:hover {
+    opacity: 1;
 }
   
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
-.array-size::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+.sliders::-webkit-slider-thumb {
+    -webkit-appearance: none;
     appearance: none;
-    width: 20px; /* Set a specific slider handle width */
-    height: 20px; /* Slider handle height */
-    background: #F9D342; /* Green background */
+    width: 20px;
+    height: 20px;
+    background: #F9D342;
     border-radius: 50%;
-    cursor: pointer; /* Cursor on hover */
+    cursor: pointer;
 }
   
-.array-size::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #F9D342; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+.sliders::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #F9D342;
+    cursor: pointer;
+}
+
+.sliders#speed {
+    transform: scale(-1);
 }
 
 .bar {
-    width: 10px;
-    height: 400px;
+    width: 20px;
     background-color: #292826;
     position: relative;
     display: block;
-    margin: 2px;
+    margin: 4px;
+    color: rgb(209, 209, 209);
+    font-size: 13px;
+    text-align: center;
+}
+
+.bar#tbd {
+    background-color: red;
+}
+
+.bar#current {
+    background-color: blue;
+}
+
+.bar#done {
+    background-color: green;
 }
 
 .canvas {
     display: flex;
     justify-content: center;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer .dev {
+    margin: 12px;
+    text-decoration: none;
+}
+
+footer .rep {
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #F9D341;
 }
