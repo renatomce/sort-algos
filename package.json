@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/renatomce/sort-algos/issues"
   },
-  "homepage": "https://github.com/renatomce/sort-algos#readme"
+  "homepage": "https://github.com/renatomce/sort-algos#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
