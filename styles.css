@@ -46,6 +46,10 @@ nav select, button {
     transition: .4s;
 }
 
+body {
+    background-color: rgb(209, 209, 209);
+}
+
 select:hover, button:hover {
     background-color: rgb(243, 224, 147);
 }
@@ -96,13 +100,13 @@ select:hover, button:hover {
 }
 
 .bar {
-    width: 20px;
-    background-color: #292826;
+    width: 10px;
+    background-color: #3b3a38;
     position: relative;
     display: block;
-    margin: 4px;
+    margin: 3px;
     color: rgb(209, 209, 209);
-    font-size: 13px;
+    font-size: 0px;
     text-align: center;
 }
 
@@ -115,7 +119,7 @@ select:hover, button:hover {
 }
 
 .bar#done {
-    background-color: green;
+    background-color: rgb(5, 151, 5);
 }
 
 .canvas {
@@ -134,7 +138,7 @@ footer {
 }
 
 footer .dev {
-    margin: 12px;
+    margin: 8px;
     text-decoration: none;
 }
 
