@@ -6,12 +6,18 @@
         <meta name="description" content="Visualizer for different sorting algorithms">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./dist/hamburgers.css">
         <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
             <nav>
                 <a href="/" class="title"><h1 class="link">Sorting visualizer</h1></a>
+                <button class="hamburger hamburger--collapse" type="button" id="menu">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
                 <h2>Method:</h2>
                 <div class="dropdown">
                     <select>
@@ -34,8 +40,8 @@
             <ul class="canvas">
             </ul>
             <footer>
-                <a href="https://github.com/renatomce" target="_blank" class="dev"><h3 class="link">⯈ Developed by Renato Cervati</h3></a>
-                <a href="https://github.com/renatomce/sort-algos" target="_blank" class="rep"><h3 class="link">⯈ Repository on GitHub</h3></a>
+                <a href="https://github.com/renatomce" target="_blank" class="dev"><h3 class="link">Developed by Renato Cervati</h3></a>
+                <a href="https://github.com/renatomce/sort-algos" target="_blank" class="rep"><h3 class="link">Repository on GitHub</h3></a>
             </footer>
         <script src="./src/script.js"></script>
     </body>

@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Work Sans', sans-serif;
+    box-sizing: border-box;
 }
 
 header, footer {
@@ -27,6 +28,7 @@ h1 {
 a.title {
     margin-right: auto;
     text-decoration: none;
+    width: 300px;
 }
 
 h2 {
@@ -43,7 +45,7 @@ h3 {
     margin-right: 15px;
 }
 
-nav select, button {
+nav select, button.sort {
     background-color: #F9D341;
     border: none;
     text-align: center;
@@ -159,4 +161,75 @@ footer .rep {
 
 .link:hover {
     color: #F9D341;
+}
+
+button#menu {
+    display: none;
+}
+
+/* MOBILE */
+nav.mobile {
+    width: 95%;
+    height: 100vh; /*100vh onclick*/
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0px;
+}
+
+h1.mobile {
+    display: block;
+    position: absolute;
+    top: 22px;
+    left: 5%;
+    width: 200px;
+}
+
+h2.mobile {
+    display: block; /*block onclick*/
+    margin-right: 0;
+    padding: 20px;
+}
+
+nav.mobile, select.mobile {
+    display: block;
+    position: relative;
+}
+
+.dropdown.mobile {
+    display: block; /*block onclick*/
+    margin-right: 0;
+}
+
+.sort.sort.mobile {
+    display: block; /*block onclick*/
+    position: relative;
+    margin-top: 60px;
+}
+
+.sliders.mobile {
+    display: block; /*block onclick*/
+    width: 85%;
+    height: 10px;
+}
+
+.canvas.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 820px) {
+
+    button#menu {
+        display: block;
+        position: absolute;
+        top: 7.5px;
+        right: 5%;
+    }
+
+    h2, select, .dropdown, .sort.sort, .sliders {
+        display: none;
+    }
+
 }

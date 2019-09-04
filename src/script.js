@@ -6,8 +6,26 @@ let clicked = 0
 const defaultSize = size.value
 let currentSpeed = speed.value * 100
 
+let hamburger = document.getElementById('menu')
+let navMenu = document.querySelector('nav')
+let navText = document.querySelectorAll('h2')
+let methodSelector = document.querySelector('.dropdown')
+
 let width = window.innerWidth
 let height = window.innerHeight
+
+const toggleMobileMenu = () => {
+    hamburger.classList.toggle('is-active')
+    canvas.classList.toggle('mobile')
+    size.classList.toggle('mobile')
+    speed.classList.toggle('mobile')
+    startButton.classList.toggle('mobile')
+    navMenu.classList.toggle('mobile')
+    navText.forEach( text => {
+        text.classList.toggle('mobile')
+    })
+    methodSelector.classList.toggle('mobile')
+}
 
 const renderBars = (quantity) => {
     for (let i = 0; i < quantity; i++) {
@@ -67,12 +85,17 @@ size.oninput = () => {
 
 speed.oninput = () => {
     currentSpeed = speed.value * 100
-    console.log(currentSpeed)
 }
 
 startButton.addEventListener('click', function () {
     clicked++
     if (clicked > 1) location.reload()
     orderBarsBubble()
-    startButton.innerHTML = '<b>STOP</b>'
+    if (width < 820) toggleMobileMenu()
+    startButton.innerHTML = '<b>RESET</b>'
 })
+
+hamburger.addEventListener('click', function () {
+    toggleMobileMenu()
+})
+
