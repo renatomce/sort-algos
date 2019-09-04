@@ -59,11 +59,19 @@ nav select, button.sort {
     transition: .4s;
 }
 
+button.sort {
+    background-color: rgb(5, 151, 5);
+}
+
+button.sort:hover {
+    background-color: rgb(14, 201, 14);
+}
+
 body {
     background-color: rgb(209, 209, 209);
 }
 
-select:hover, button:hover {
+select:hover, .dropdown:hover {
     background-color: rgb(243, 224, 147);
 }
 
@@ -180,6 +188,7 @@ nav.mobile {
 h2.mobile {
     display: block; /*block onclick*/
     padding: 20px;
+    font-size: 15px;
     text-align: center;
     margin-right: 0;
 }
@@ -188,12 +197,20 @@ h2.mobile {
     display: block; /*block onclick*/
     width: 80%;
     margin-right: 0;
+    font-size: 15px;
 }
 
 .sort.sort.mobile {
     display: block; /*block onclick*/
     margin-top: 60px;
-    width: 100px;
+    width: 120px;
+    height: 35px;
+    background-color: rgb(5, 151, 5);
+    font-size: 16px;
+}
+
+.sort.sort:hover {
+    background-color: rgb(14, 201, 14);
 }
 
 .sliders.mobile {
@@ -211,14 +228,14 @@ h2.mobile {
     button#menu {
         display: block;
         position: absolute;
-        top: 10px;
+        top: 12.5px;
         right: 5%;
     }
 
     a.title {
         display: block;
         position: absolute;
-        top: 17.5px;
+        top: 18px;
         left: 5%;
     }
 
