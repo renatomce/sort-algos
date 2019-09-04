@@ -26,9 +26,9 @@ h1 {
 }
 
 a.title {
-    margin-right: auto;
     text-decoration: none;
-    width: 300px;
+    width: 165px;
+    margin-right: auto;
 }
 
 h2 {
@@ -69,7 +69,6 @@ select:hover, button:hover {
 
 .dropdown {
     position: relative;
-    display: inline-block;
     margin-right: 30px;
 }
 
@@ -117,7 +116,7 @@ select:hover, button:hover {
     background-color: #3b3a38;
     position: relative;
     display: block;
-    margin: 3px;
+    margin: 2.5px;
     color: rgb(209, 209, 209);
     font-size: 0px;
     text-align: center;
@@ -171,7 +170,6 @@ button#menu {
 nav.mobile {
     width: 95%;
     height: 100vh; /*100vh onclick*/
-    margin: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -179,40 +177,29 @@ nav.mobile {
     padding: 15px 0px;
 }
 
-h1.mobile {
-    display: block;
-    position: absolute;
-    top: 22px;
-    left: 5%;
-    width: 200px;
-}
-
 h2.mobile {
     display: block; /*block onclick*/
-    margin-right: 0;
     padding: 20px;
-}
-
-nav.mobile, select.mobile {
-    display: block;
-    position: relative;
+    text-align: center;
+    margin-right: 0;
 }
 
 .dropdown.mobile {
     display: block; /*block onclick*/
+    width: 80%;
     margin-right: 0;
 }
 
 .sort.sort.mobile {
     display: block; /*block onclick*/
-    position: relative;
     margin-top: 60px;
+    width: 100px;
 }
 
 .sliders.mobile {
     display: block; /*block onclick*/
-    width: 85%;
-    height: 10px;
+    width: 80%;
+    margin-right: 0;
 }
 
 .canvas.mobile {
@@ -224,8 +211,19 @@ nav.mobile, select.mobile {
     button#menu {
         display: block;
         position: absolute;
-        top: 7.5px;
+        top: 10px;
         right: 5%;
+    }
+
+    a.title {
+        display: block;
+        position: absolute;
+        top: 17.5px;
+        left: 5%;
+    }
+
+    nav {
+        height: 60px;
     }
 
     h2, select, .dropdown, .sort.sort, .sliders {
