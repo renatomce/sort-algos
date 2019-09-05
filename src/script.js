@@ -119,8 +119,8 @@ if (window.innerWidth < 820) {
     size.setAttribute('value', '35')
     renderBars(35)
 } else if (window.innerWidth > 1400) {
-    size.setAttribute('max', '100')
-    size.setAttribute('value', '100')
+    size.setAttribute('max', '160')
+    size.setAttribute('value', '160')
     renderBars(160)
 } else {
     renderBars(100)
