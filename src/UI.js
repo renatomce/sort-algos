@@ -1,4 +1,4 @@
-import InputHandler from "./InputHandler.js"
+import InputHandler from './InputHandler.js';
 
 export default class UI {
   constructor() {
