@@ -40,7 +40,7 @@ h2 {
 
 h3 {
     color: rgb(209, 209, 209);
-    font-size: 12px;
+    font-size: 14px;
     display: block;
     margin-right: 15px;
 }
@@ -165,15 +165,11 @@ footer {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-footer .dev {
-    margin: 8px;
-    text-decoration: none;
+    justify-content: center;
 }
 
 footer .rep {
+    margin: 10px;
     text-decoration: none;
 }
 
