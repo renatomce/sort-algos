@@ -1,7 +1,7 @@
 'use strict';
 
 import UI from './UI.js';
-import Canvas from './Canvas.js';
+import Canvas from './Canvas.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
