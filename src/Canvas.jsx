@@ -1,6 +1,5 @@
 'use strict';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 export default class Canvas extends React.Component {
   constructor(props) {
