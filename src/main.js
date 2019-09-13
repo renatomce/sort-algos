@@ -5,7 +5,5 @@ import Canvas from './Canvas.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const e = document.querySelector('.canvas');
-
 new UI();
-ReactDOM.render(<Canvas />, e);
+ReactDOM.render(<Canvas ref={(Canvas) => {window.Canvas = Canvas}} />, document.querySelector('.canvas'));

@@ -1,4 +1,4 @@
-import InputHandler from './InputHandler.js';
+import InputHandler from './InputHandler.js'
 
 export default class UI {
   constructor() {
@@ -12,10 +12,9 @@ export default class UI {
       navMenu : document.querySelector('nav'),
       navText : document.querySelectorAll('h2'),
       methodSelector : document.querySelector('.dropdown'),
-      shouldStop : false,
-      currentSpeed : speed.value * 100,
-      currentSize : size.value
     }
+    this.currentSize = size.value;
+    this.currentSpeed = speed.value * 100;
 
     new InputHandler(this);
   }
@@ -38,15 +37,14 @@ export default class UI {
     else {
       this.toggleMobileMenu('stop')
     }
-    this.input.shouldStop = true;
   }
 
   updateSpeed() {
-    this.input.currentSpeed = this.input.speed.value * 100;
+    this.currentSpeed = this.input.speed.value * 100;
   }
 
   updateSize() {
-    this.input.currentSize = this.input.size.value;
+    this.currentSize = this.input.size.value;
   }
   
   toggleMobileMenu(sender) {
