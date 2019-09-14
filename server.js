@@ -5,7 +5,7 @@ let app = express();
 let path = require('path');
 
 app.use(express.static(path.join(__dirname)));
-app.use("styles.css", express.static(__dirname));
+app.use("/res/styles.css", express.static(__dirname));
 app.use("/src", express.static(__dirname + '/src'));
 
 app.get('/', function (req, res) {
