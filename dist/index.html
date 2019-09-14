@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sorting visualizer</title>
+    <meta name="description" content="Visualizer for different sorting algorithms">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./res/styles.css">
+    <link rel="stylesheet" href="./res/hamburgers.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="title"><h1 class="link">Sortalgos</h1></a>
+        <button class="hamburger hamburger--collapse" type="button" id="menu">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+        <h2>Method</h2>
+          <select class="dropdown">
+            <option value="bubble">Bubble</option>
+            <option value="insertion">Insertion</option>
+            <option value="soon" disabled>⇓ To be implemented ⇓</option>
+            <option value="merge" disabled>Merge</option>
+            <option value="quick" disabled>Quick</option>
+            <option value="heap" disabled>Heap</option>
+            <option value="counting" disabled>Counting</option>
+          </select>
+          <h2>Size</h2>
+          <input type="range" min="10" class="sliders" id="size">
+          <h2>Speed</h2>
+          <input type="range" min=".05" max="5.05" value="1.05" class="sliders" id="speed">
+        <button class="start"><b>START</b></button>
+        <button class="pause"><b>PAUSE</b></button>
+        <button class="restart"><b>RESET</b></button>
+      </nav>
+    </header>
+      <div class="canvas"></div>
+    <footer>
+      <a href="https://github.com/renatomce/sort-algos" target="_blank" class="rep">
+        <h3 class="link">Repository on GitHub &#x1f517</h3>
+      </a>
+    </footer>
+  <script type="text/javascript" src="build.js"></script></body>
+</html>
