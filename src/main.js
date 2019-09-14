@@ -1,5 +1,8 @@
 'use strict';
 
+require('../res/hamburgers.css');
+require('../res/styles.css');
+
 import UI from './UI.js';
 import Canvas from './Canvas.jsx';
 import React from 'react';
