@@ -17,33 +17,29 @@ export default class UI {
     this.input.size.setAttribute('max', Math.floor(window.innerWidth / 10));
     this.input.size.setAttribute('value', Math.floor(window.innerWidth / 10));
     this.currentSize = size.value;
-    this.currentSpeed = speed.value * 100;
+    this.currentSpeed = speed.value;
 
     new InputHandler(this);
   }
 
   startExecution() {
-    if (window.innerWidth >= 820) {
-      this.input.startButton.style.display = 'none';
-      this.input.pauseButton.style.display = 'block';
-    }
-    else {
-      this.toggleMobileMenu('start');
-    }
     this.input.speed.disabled = true;
     this.input.size.disabled = true;
+    this.input.methodSelector.disabled = true;
+    this.input.methodSelector.style.opacity = '0.3';
+    this.input.speed.style.opacity = '0.3';
+    this.input.size.style.opacity = '0.3';
+    this.input.startButton.classList.toggle('is-active');
+    this.input.pauseButton.classList.toggle('is-active');
   }
 
-  stopExecution() {
-    if (window.innerWidth >= 820) {
-      this.input.pauseButton.style.display = 'none';
-      this.input.startButton.style.display = 'block';
-    }
-    else {
-      this.toggleMobileMenu('pause');
-    }
+  pauseExecution() {
     this.input.speed.disabled = false;
     this.input.size.disabled = false;
+    this.input.speed.style.opacity = '1';
+    this.input.size.style.opacity = '1';
+    this.input.startButton.classList.toggle('is-active');
+    this.input.pauseButton.classList.toggle('is-active');
   }
 
   updateSpeed() {
@@ -59,22 +55,13 @@ export default class UI {
     this.input.canvas.classList.toggle('mobile');
     this.input.size.classList.toggle('mobile');
     this.input.speed.classList.toggle('mobile');
-    this.input.startButton.classList.toggle('mobile');
-    this.input.pauseButton.classList.toggle('mobile');
     this.input.restartButton.classList.toggle('mobile');
     this.input.navMenu.classList.toggle('mobile');
     this.input.navText.forEach( text => {
         text.classList.toggle('mobile');
     })
     this.input.methodSelector.classList.toggle('mobile');
-
-    if (sender === 'start') {
-      this.input.pauseButton.classList.toggle('is-active');
-      this.input.startButton.classList.toggle('is-active');
-    }
-    if (sender === 'pause') {
-      this.input.startButton.classList.toggle('is-active');
-      this.input.pauseButton.classList.toggle('is-active');
-    }
+    this.input.startButton.classList.toggle('mobile');
+    this.input.pauseButton.classList.toggle('mobile');
   }
 }

@@ -1,7 +1,7 @@
 export default class InputHandler {
   constructor(ui) {
     ui.input.hamburger.addEventListener('click', () => {
-      ui.toggleMobileMenu()
+      ui.toggleMobileMenu();
     });
 
     ui.input.startButton.addEventListener('click', () => { 
@@ -10,7 +10,7 @@ export default class InputHandler {
     });
 
     ui.input.pauseButton.addEventListener('click', () => {
-      ui.stopExecution();
+      ui.pauseExecution();
       window.Canvas.pauseSort();
     });
 

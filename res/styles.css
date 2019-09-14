@@ -74,6 +74,14 @@ button.pause {
     font-size: 16px;
 }
 
+button.pause.is-active {
+    display: block;
+}
+
+button.start.is-active {
+    display: none;
+}
+
 button.pause:hover {
     background-color: rgb(197, 197, 67);
 }
@@ -197,44 +205,10 @@ h2.mobile {
 }
 
 .dropdown.mobile {
-    display: block; /*block onclick*/
+    display: block;
     width: 80%;
     margin-right: 0;
     font-size: 15px;
-}
-
-.start.start.mobile {
-    display: block; /*block onclick*/
-    margin-top: 60px;
-    width: 120px;
-    height: 35px;
-    background-color: rgb(14, 201, 14);
-    font-size: 16px;
-}
-
-.start.start.mobile.is-active {
-    display: none;
-}
-
-.start.start:hover {
-    background-color: rgb(14, 201, 14);
-}
-
-.pause.pause.mobile {
-    display: none; /*block onclick*/
-    margin-top: 60px;
-    background-color: rgb(197, 197, 67);
-    width: 120px;
-    height: 35px;
-    font-size: 16px;
-}
-
-.pause.pause.mobile.is-active {
-    display: block;
-}
-
-.pause.pause:hover {
-    background-color: rgb(197, 197, 67);
 }
 
 .restart.restart.mobile {
@@ -243,12 +217,16 @@ h2.mobile {
     width: 120px;
     height: 35px;
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 60px;
     margin-left: 0px;
 }
 
+.start.start.mobile, .pause.pause.mobile {
+    display: none;
+}
+
 .sliders.mobile {
-    display: block; /*block onclick*/
+    display: block;
     width: 80%;
     margin-right: 0;
 }
@@ -277,7 +255,19 @@ h2.mobile {
         height: 60px;
     }
 
-    h2, select, .dropdown, .start.start, .pause.pause, .restart.restart, .sliders {
+    h2, select, .dropdown, .restart.restart, .sliders {
         display: none;
+    }
+
+    .start.start, .pause.pause {
+        margin-right: 80px;
+    }
+
+    .start.start {
+        background-color: rgb(32, 192, 32);
+    }
+
+    .pause.pause {
+        background-color: rgb(179, 179, 59);
     }
 }

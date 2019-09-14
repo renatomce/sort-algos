@@ -8,7 +8,7 @@ export default class Canvas extends Component {
     super(props);
     this.state = {
       width: 10,
-      speed: 205,
+      speed: 55,
       array: createArr(Math.floor(window.innerWidth / 10)),
       shouldPause: false
     }
