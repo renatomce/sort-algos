@@ -4,8 +4,8 @@
   "description": "Sorting algorithms visualizer",
   "main": "index.html",
   "scripts": {
-    "start": "webpack --mode production",
-    "build": "webpack-dev-server --mode development --open --hot"
+    "start": "node server.js",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
