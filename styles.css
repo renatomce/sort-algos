@@ -40,12 +40,12 @@ h2 {
 
 h3 {
     color: rgb(209, 209, 209);
-    font-size: 12px;
+    font-size: 14px;
     display: block;
     margin-right: 15px;
 }
 
-nav select, button.start, button.stop {
+nav select, button.start, button.pause, button.restart {
     background-color: #F9D341;
     border: none;
     text-align: center;
@@ -68,14 +68,24 @@ button.start:hover {
     background-color: rgb(14, 201, 14);
 }
 
-button.stop {
+button.pause {
     display: none;
-    background-color: rgb(218, 15, 15);
+    background-color: rgb(141, 141, 49);
     font-size: 16px;
 }
 
-button.stop:hover {
-    background-color: rgb(245, 65, 65);
+button.pause:hover {
+    background-color: rgb(197, 197, 67);
+}
+
+button.restart {
+    background-color: rgb(202, 25, 25); 
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+button.restart:hover {
+    background-color:rgb(238, 32, 32);
 }
 
 body {
@@ -130,32 +140,18 @@ select:hover, .dropdown:hover {
     transform: scale(-1);
 }
 
-.bar {
-    width: 10px;
-    background-color: #3b3a38;
-    position: relative;
-    display: block;
-    margin: 2px;
-    color: rgb(209, 209, 209);
-    font-size: 0px;
-    text-align: center;
-}
-
-.bar#tbd {
-    background-color: red;
-}
-
-.bar#current {
-    background-color: blue;
-}
-
-.bar#done {
-    background-color: rgb(5, 151, 5);
-}
-
 .canvas {
-    display: flex;
-    justify-content: center;
+    position: fixed;
+    bottom: 8%;
+}
+
+.bar {
+    display: inline-block;
+    background-color: #292826;
+    width: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #7c7b78;
 }
 
 footer {
@@ -165,15 +161,11 @@ footer {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-footer .dev {
-    margin: 8px;
-    text-decoration: none;
+    justify-content: center;
 }
 
 footer .rep {
+    margin: 10px;
     text-decoration: none;
 }
 
@@ -216,7 +208,7 @@ h2.mobile {
     margin-top: 60px;
     width: 120px;
     height: 35px;
-    background-color: rgb(5, 151, 5);
+    background-color: rgb(14, 201, 14);
     font-size: 16px;
 }
 
@@ -228,21 +220,31 @@ h2.mobile {
     background-color: rgb(14, 201, 14);
 }
 
-.stop.stop.mobile {
+.pause.pause.mobile {
     display: none; /*block onclick*/
     margin-top: 60px;
+    background-color: rgb(197, 197, 67);
     width: 120px;
     height: 35px;
-    background-color: rgb(218, 15, 15);
     font-size: 16px;
 }
 
-.stop.stop.mobile.is-active {
+.pause.pause.mobile.is-active {
     display: block;
 }
 
-.stop.stop:hover {
-    background-color: rgb(245, 65, 65);
+.pause.pause:hover {
+    background-color: rgb(197, 197, 67);
+}
+
+.restart.restart.mobile {
+    display: block;
+    background-color:rgb(238, 32, 32);
+    width: 120px;
+    height: 35px;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 0px;
 }
 
 .sliders.mobile {
@@ -275,8 +277,7 @@ h2.mobile {
         height: 60px;
     }
 
-    h2, select, .dropdown, .start.start, .stop.stop, .sliders {
+    h2, select, .dropdown, .start.start, .pause.pause, .restart.restart, .sliders {
         display: none;
     }
-
 }
