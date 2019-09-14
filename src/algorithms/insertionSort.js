@@ -1,4 +1,4 @@
-export default function InsertionSort(list) {
+export default function insertionSort(list) {
   let snapshots = [];
   for (let i = 1; i < list.length; i++) {
     let key = list[i];

@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import createArr from './canvasHelper.js';
 import bubbleSort from './algorithms/bubbleSort';
-import InsertionSort from './algorithms/insertionSort.js';
+import insertionSort from './algorithms/insertionSort.js';
 
 export default class Canvas extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      size: 50,
+      width: 10,
       speed: 205,
-      array: createArr(50)
+      array: createArr(Math.floor(window.innerWidth / 10)),
+      shouldPause: false
     }
   }
 
   onUpdateSize(newSize) {
+    let newWidth = window.innerWidth / newSize;
+
     this.setState(() => {
-      return { array: createArr(newSize) };
+      return { array: createArr(newSize), width: newWidth };
     })
   }
 
@@ -25,27 +28,40 @@ export default class Canvas extends Component {
     });
   }
 
-  startSort() {
-    const snapshots = bubbleSort(this.state.array);
+  startSort(method) {
+    let snapshots = [];
+    switch (method) {
+      case 'bubble':
+        snapshots = bubbleSort(this.state.array);
+        break;
+      case 'insertion':
+        snapshots = insertionSort(this.state.array);
+        break;
+    }
+    
     let i = 0;
-      let timerId = setInterval(() => {
-        this.setState( () => {
-          return { array: snapshots[i] };
-        });
-        i++
-        if (i === snapshots.length) clearInterval(timerId);
-      }, this.state.speed);
+    let timerId = setInterval(() => {
+      this.setState( () => { return { array: snapshots[i] } });
+      i++
+      if (i === snapshots.length || this.state.shouldPause) {
+        clearInterval(timerId);
+        this.setState( () => { return { shouldPause: false } });
+      }
+    }, this.state.speed);
+    
+  }
+
+  pauseSort() {
+    this.setState( () => { return { shouldPause: true } });
   }
 
   render() {
     return (
-      <div>
-        <ul>
-        {
-          this.state.array.map( (element, i) => <li key={i} className="bar" style={{ height: element * 5}}> </li>)
-        }
-        </ul>
-      </div>
+      <ul>
+      {
+        this.state.array.map( (element, i) => <li key={i} className="bar" style={{ height: element * 3, width: this.state.width}}> </li>)
+      }
+      </ul>
     );
   };
 }

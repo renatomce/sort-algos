@@ -6,13 +6,17 @@ export default class InputHandler {
 
     ui.input.startButton.addEventListener('click', () => { 
       ui.startExecution();
-      window.Canvas.startSort();
+      window.Canvas.startSort(ui.input.methodSelector.value);
     });
 
-    ui.input.stopButton.addEventListener('click', () => {
+    ui.input.pauseButton.addEventListener('click', () => {
       ui.stopExecution();
-      window.Canvas.decrement();
+      window.Canvas.pauseSort();
     });
+
+    ui.input.restartButton.addEventListener('click', () => {
+      window.location.reload();
+    })
 
     ui.input.size.addEventListener('input', () => {
       ui.updateSize();
