@@ -15,7 +15,7 @@ export default class InputHandler {
     });
 
     ui.input.restartButton.addEventListener('click', () => {
-      window.location.reload();
+      document.location.reload();
     })
 
     ui.input.size.addEventListener('input', () => {
