@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import createArr from './canvasHelper.js';
 import bubbleSort from './algorithms/bubbleSort.js';
 import insertionSort from './algorithms/insertionSort.js';
+import mergeSort from './algorithms/mergeSort.js';
 
 export default class Canvas extends Component {
   constructor(props) {
@@ -39,6 +40,9 @@ export default class Canvas extends Component {
       case 'insertion':
         snapshots = insertionSort(this.state.array);
         break;
+      // case 'merge':
+      //   snapshots = mergeSort(this.state.array);
+      //   break;
     }
     
     let i = 0;
