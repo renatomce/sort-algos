@@ -84,7 +84,8 @@ export default class Canvas extends Component {
         pauseButton.innerHTML = '<b>RESET</b>';
         pauseButton.addEventListener('click', () => { document.location.reload() });
       } else {
-        pauseButton.style.display = 'none';
+        pauseButton.disabled = true;
+        pauseButton.style.opacity = '0.3';
       }
     }
 
