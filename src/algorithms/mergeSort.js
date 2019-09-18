@@ -1,24 +1,52 @@
-let array = [300, 201, 250, 5 , 220 , 420 , 25 , 13 , 12 , 24 , 88 , 85 , 17]
+let snapshots = [];
+let originalLength;
+let lastArr = [];
 
-function mergeSort(list) {
-  let snapshots = [];
-  
-  let temp = list;
-  list.forEach( (n, i, a) => {
-    if (i % 2 === 0 && i !== a.length - 1) {
-      if (n > temp[i + 1]) {
-        let j = [temp[i + 1], n];
-        temp = temp.slice(0, i).concat(j.concat(temp.slice(i + 2)));
-        snapshots.push(temp.slice());
-      }
-    }
-  });
-
-  for (let i = 4; i < Math.floor(array.length / 2); i = i * 2) {
-    console.log(i)
+function append (a) {
+  let toAppend = a.filter( e => e !== undefined);
+  let areEqual = toAppend.every( (e, i) => e === lastArr[i]);
+  if (toAppend.length === originalLength && !areEqual) {
+    snapshots.push(toAppend.slice());
   }
-
-	return snapshots;
+  lastArr = toAppend;
 }
 
-console.log(mergeSort(array));
+function merge(a, low, mid, high) {
+  let N = high - low + 1;
+  let b = [];
+  let left = low;
+  let right = mid + 1;
+  let bIdx = 0;
+  while (left <= mid && right <= high) {
+    b[bIdx++] = (a[left] <= a[right]) ? a[left++] : a[right++];
+    append(a);
+  }
+  while (left <= mid) {
+    b[bIdx++] = a[left++];
+    append(a);
+  }
+  while (right <= high) {
+    b[bIdx++] = a[right++];
+    append(a);
+  }
+  for (let k = 0; k < N; k++) {
+    a[low+k] = b[k];
+    append(a);
+  }
+}
+
+function executeMerge(a, low, high) {
+  lastArr = a;
+  if (low < high) {
+    let mid = Math.floor((low + high) / 2);
+    executeMerge(a, low, mid);
+    executeMerge(a, mid + 1, high);
+    merge(a, low, mid, high);
+  }
+}
+
+export default function mergeSort(list) {
+  originalLength = list.length;
+  executeMerge(list, 0, originalLength);
+  return snapshots;
+}

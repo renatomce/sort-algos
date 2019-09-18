@@ -40,9 +40,9 @@ export default class Canvas extends Component {
       case 'insertion':
         snapshots = insertionSort(this.state.array);
         break;
-      // case 'merge':
-      //   snapshots = mergeSort(this.state.array);
-      //   break;
+      case 'merge':
+        snapshots = mergeSort(this.state.array);
+        break;
     }
     
     let i = 0;
@@ -78,6 +78,8 @@ export default class Canvas extends Component {
     if (this.state.isDone) {
       const pauseButton = document.querySelector('.pause');
       if (window.innerWidth < 820) {
+        pauseButton.disabled = false;
+        pauseButton.style.opacity = '1';
         pauseButton.style.backgroundColor = 'rgb(238, 32, 32)';
         pauseButton.innerHTML = '<b>RESET</b>';
         pauseButton.addEventListener('click', () => { document.location.reload() });
