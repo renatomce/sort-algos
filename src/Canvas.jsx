@@ -3,6 +3,7 @@ import createArr from './canvasHelper.js';
 import bubbleSort from './algorithms/bubbleSort.js';
 import insertionSort from './algorithms/insertionSort.js';
 import mergeSort from './algorithms/mergeSort.js';
+import heapSort from './algorithms/heapSort.js';
 
 export default class Canvas extends Component {
   constructor(props) {
@@ -19,7 +20,6 @@ export default class Canvas extends Component {
 
   onUpdateSize(newSize) {
     let newWidth = window.innerWidth / newSize;
-
     this.setState(() => {
       return { array: createArr(newSize), width: newWidth };
     })
@@ -42,6 +42,9 @@ export default class Canvas extends Component {
         break;
       case 'merge':
         snapshots = mergeSort(this.state.array);
+        break;
+      case 'heap':
+        snapshots = heapSort(this.state.array);
         break;
     }
     
@@ -95,7 +98,7 @@ export default class Canvas extends Component {
       <li 
         key={i} 
         className="bar" 
-        style={{ height: element * 3, width: this.state.width, backgroundColor: colorMapping[i] }}
+        style={{ height: element * 3.2, width: this.state.width, backgroundColor: colorMapping[i] }}
       />
     )}
     </ul>

@@ -2,7 +2,7 @@ let snapshots = [];
 let originalLength;
 let lastArr = [];
 
-function append (a) {
+function append(a) {
   let toAppend = a.filter( e => e !== undefined);
   let areEqual = toAppend.every( (e, i) => e === lastArr[i]);
   if (toAppend.length === originalLength && !areEqual) {

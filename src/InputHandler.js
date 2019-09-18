@@ -7,7 +7,9 @@ export default class InputHandler {
     ui.input.startButton.addEventListener('click', () => { 
       ui.startExecution();
       window.Canvas.startSort(ui.input.methodSelector.value);
-      if (ui.input.methodSelector.value === 'merge') {
+      if (ui.input.methodSelector.value === 'merge' ||
+          ui.input.methodSelector.value === 'heap'
+      ) {
         ui.input.pauseButton.style.opacity = '0.3';
         ui.input.pauseButton.disabled = true;
       }
