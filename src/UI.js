@@ -13,6 +13,7 @@ export default class UI {
       navMenu : document.querySelector('nav'),
       navText : document.querySelectorAll('h2'),
       methodSelector : document.querySelector('.dropdown'),
+      methodInfo: document.querySelector('.information')
     }
     this.input.size.setAttribute('max', Math.floor(window.innerWidth / 10));
     this.input.size.setAttribute('value', Math.floor(window.innerWidth / 10));
@@ -50,7 +51,7 @@ export default class UI {
     this.currentSize = this.input.size.value;
   }
   
-  toggleMobileMenu(sender) {
+  toggleMobileMenu() {
     this.input.hamburger.classList.toggle('is-active');
     this.input.canvas.classList.toggle('mobile');
     this.input.size.classList.toggle('mobile');
@@ -63,5 +64,15 @@ export default class UI {
     this.input.methodSelector.classList.toggle('mobile');
     this.input.startButton.classList.toggle('mobile');
     this.input.pauseButton.classList.toggle('mobile');
+  }
+
+  toggleInfo(sender) {
+    for (let i = 0; i < this.input.methodInfo.children.length; i++) {
+      if (i === sender) {
+        this.input.methodInfo.children[i].setAttribute('style', 'display: flex;');
+      } else {
+        this.input.methodInfo.children[i].setAttribute('style', 'display: none;');
+      }
+    }
   }
 }

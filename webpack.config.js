@@ -16,11 +16,17 @@ module.exports = {
       }, {
         test: /\.css$/,
         loader: ['style-loader', 'css-loader']
-      }]
+      }, {
+        test: /\.(jpg|png)$/,
+        loader: 'url-loader'
+      }],
     },
     plugins:[
         new HWP(
-          {template: path.join(__dirname,'index.html')}
+          {
+            template: path.join(__dirname,'index.html'),
+            favicon: "./static/images/favicon.ico"
+          }
         )
     ]
 }

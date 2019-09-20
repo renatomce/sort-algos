@@ -4,6 +4,23 @@ export default class InputHandler {
       ui.toggleMobileMenu();
     });
 
+    ui.input.methodSelector.addEventListener('change', () => {
+      switch (ui.input.methodSelector.value) {
+        case 'bubble':
+          ui.toggleInfo(0);
+        break;
+        case 'insertion':
+          ui.toggleInfo(1);
+        break;
+        case 'merge':
+          ui.toggleInfo(2);
+        break;
+        case 'heap':
+          ui.toggleInfo(3);
+        break;
+      }
+    });
+
     ui.input.startButton.addEventListener('click', () => { 
       ui.startExecution();
       window.Canvas.startSort(ui.input.methodSelector.value);

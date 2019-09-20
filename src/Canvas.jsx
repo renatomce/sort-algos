@@ -5,17 +5,20 @@ import insertionSort from './algorithms/insertionSort.js';
 import mergeSort from './algorithms/mergeSort.js';
 import heapSort from './algorithms/heapSort.js';
 
+const initialState = {
+  width: 10,
+  speed: 55,
+  array: createArr(Math.floor(window.innerWidth / 10)),
+  prevArray : [],
+  shouldPause: false,
+  isDone: false,
+  heightFactor: Math.floor(window.innerHeight / 200)
+};
+
 export default class Canvas extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      width: 10,
-      speed: 55,
-      array: createArr(Math.floor(window.innerWidth / 10)),
-      prevArray : [],
-      shouldPause: false,
-      isDone: false
-    }
+    this.state = initialState;
   }
 
   onUpdateSize(newSize) {
@@ -49,7 +52,7 @@ export default class Canvas extends Component {
     }
     
     let i = 0;
-    let timerId = setInterval(() => {
+    const timerId = setInterval(() => {
       this.setState( () => { return { array: snapshots[i] } });
       if (i !== 0) this.setState( () => { return { prevArray: snapshots[i - 1] } });
       i++
@@ -98,7 +101,7 @@ export default class Canvas extends Component {
       <li 
         key={i} 
         className="bar" 
-        style={{ height: element * 3.2, width: this.state.width, backgroundColor: colorMapping[i] }}
+        style={{ height: element * this.state.heightFactor, width: this.state.width, backgroundColor: colorMapping[i] }}
       />
     )}
     </ul>

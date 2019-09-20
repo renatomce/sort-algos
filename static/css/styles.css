@@ -11,6 +11,10 @@ header, footer {
     background-color: #292826;
 }
 
+p {
+  font-size: 15px;
+}
+
 nav {
     width: 95%;
     margin: auto;
@@ -185,10 +189,32 @@ button#menu {
     display: none;
 }
 
+.information {
+    margin-top: 5px;
+    margin-left: 10px; 
+}
+
+.bubble-info, .insertion-info, .merge-info, .heap-info {
+    display: none;
+    flex-wrap: wrap;
+    align-items: top;
+    justify-content: flex-start;
+}
+
+.bad-performance {
+    background-color: rgb(192, 52, 52);
+    padding: 2px 4px 2px 4px;
+}
+
+.good-performance {
+    background-color: rgb(22, 207, 22);
+    padding: 2px 4px 2px 4px;
+}
+
 /* MOBILE */
 nav.mobile {
     width: 95%;
-    height: 100vh; /*100vh onclick*/
+    height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -197,7 +223,7 @@ nav.mobile {
 }
 
 h2.mobile {
-    display: block; /*block onclick*/
+    display: block;
     padding: 20px;
     font-size: 15px;
     text-align: center;
@@ -257,6 +283,15 @@ h2.mobile {
 
     h2, select, .dropdown, .restart.restart, .sliders {
         display: none;
+    }
+
+    .break {
+        flex-basis: 100%;
+        height: 0;
+    }
+
+    .more-info {
+        margin-top: 10px;
     }
 
     .start.start, .pause.pause {

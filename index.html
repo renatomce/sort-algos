@@ -5,8 +5,8 @@
     <title>Sorting visualizer</title>
     <meta name="description" content="Visualizer for different sorting algorithms">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./res/styles.css">
-    <link rel="stylesheet" href="./res/hamburgers.css">
+    <link rel="stylesheet" href="./static/css/styles.css">
+    <link rel="stylesheet" href="./static/css/hamburgers.css">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
@@ -18,14 +18,13 @@
             <span class="hamburger-inner"></span>
           </span>
         </button>
-        <h2>Method</h2>
+        <h2>Algorithm</h2>
           <select class="dropdown">
             <option value="bubble">Bubble</option>
             <option value="insertion">Insertion</option>
             <option value="merge">Merge</option>
             <option value="heap">Heap</option>
             <option value="quick" disabled>Quick</option>
-            <option value="counting" disabled>Counting</option>
           </select>
           <h2>Size</h2>
           <input type="range" min="20" class="sliders" id="size">
@@ -36,6 +35,60 @@
         <button class="restart"><b>RESET</b></button>
       </nav>
     </header>
+      <div class="information">
+        <span class="bubble-info" style="display: flex;">
+          <p style="margin-right: 15px; margin-top: 3px;"><b>Algorithm:</b> Bubble sort</p>
+          <div class="break"></div>
+          <p style="margin-right: 15px; margin-top: 3px;"><b>Method:</b> Exchanging</p>
+          <div class="break"></div>
+          <p style="margin-right: 15px; margin-top: 3px;"><b>Average Performance:</b> <span class="bad-performance">О(n²)</p>
+          <div class="break"></div>
+          <p style="margin-right: 15px; margin-top: 3px;"><b>Stable:</b> <span class="good-performance">Yes</span></p>
+          <div class="break"></div>
+          <a href="https://en.wikipedia.org/wiki/Bubble_sort" target="_blank" class="more-info">
+            <img src="./static/images/more-info.png" title="More information (Wikipedia)">
+          </a>
+        </span>
+        <span class="insertion-info">
+          <p style="margin-right: 15px; margin-top: 3px;"><b>Algorithm:</b> Insertion sort</p>
+          <div class="break"></div>
+          <p style="margin-right: 15px; margin-top: 3px;"><b>Method:</b> Insertion</p>
+          <div class="break"></div>
+          <p style="margin-right: 15px; margin-top: 3px;"><b>Average Performance:</b> <span class="bad-performance">О(n²)</p>
+          <div class="break"></div>
+          <p style="margin-right: 15px; margin-top: 3px;"><b>Stable:</b> <span class="good-performance">Yes</span></p>
+          <div class="break"></div>
+          <a href="https://en.wikipedia.org/wiki/Insertion_sort" target="_blank" class="more-info">
+            <img src="./static/images/more-info.png" title="More information (Wikipedia)">
+          </a>
+        </span>
+        <span class="merge-info">
+            <p style="margin-right: 15px; margin-top: 3px;"><b>Algorithm:</b> Merge sort</p>
+            <div class="break"></div>
+            <p style="margin-right: 15px; margin-top: 3px;"><b>Method:</b> Merging</p>
+            <div class="break"></div>
+            <p style="margin-right: 15px; margin-top: 3px;"><b>Average Performance:</b> <span class="good-performance">О(n <i>log</i> n)</p>
+            <div class="break"></div>
+            <p style="margin-right: 15px; margin-top: 3px;"><b>Stable:</b> <span class="good-performance">Yes</span></p>
+            <div class="break"></div>
+            <a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank" class="more-info">
+              <img src="./static/images/more-info.png" title="More information (Wikipedia)">
+            </a>
+        </span>
+        <span class="heap-info">
+            <p style="margin-right: 15px; margin-top: 3px;"><b>Algorithm:</b> Heap sort</p>
+            <div class="break"></div>
+            <p style="margin-right: 15px; margin-top: 3px;"><b>Method:</b> Selection</p>
+            <div class="break"></div>
+            <p style="margin-right: 15px; margin-top: 3px;"><b>Average Performance:</b> <span class="good-performance">О(n <i>log</i> n)</p>
+            <div class="break"></div>
+            <p style="margin-right: 15px; margin-top: 3px;"><b>Stable:</b> <span class="bad-performance">No</span></p>
+            <div class="break"></div>
+            <a href="https://en.wikipedia.org/wiki/Heapsort" target="_blank" class="more-info">
+              <img src="./static/images/more-info.png" title="More information (Wikipedia)">
+            </a>
+        </span>
+      </div>
       <div class="canvas"></div>
     <footer>
       <a href="https://github.com/renatomce/sort-algos" target="_blank" class="rep">
