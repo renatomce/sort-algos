@@ -9,24 +9,19 @@ module.exports = {
       filename: 'build.js',
       path: path.join(__dirname, '/dist')},
     module: {
-      rules:[{
+      rules: [{
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       }, {
         test: /\.css$/,
         loader: ['style-loader', 'css-loader']
-      }, {
-        test: /\.(jpg|png)$/,
-        loader: 'url-loader'
-      }],
+      }]
     },
     plugins:[
-        new HWP(
-          {
-            template: path.join(__dirname,'index.html'),
-            favicon: "./static/images/favicon.ico"
-          }
-        )
+      new HWP({
+          template: path.join(__dirname,'index.html'),
+          favicon: "./static/images/favicon.ico"
+        })
     ]
 }
