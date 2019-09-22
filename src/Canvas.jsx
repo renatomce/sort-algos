@@ -11,8 +11,7 @@ const initialState = {
   array: createArr(Math.floor(window.innerWidth / 10)),
   prevArray : [],
   shouldPause: false,
-  isDone: false,
-  heightFactor: Math.floor(window.innerHeight / 200)
+  isDone: false
 };
 
 export default class Canvas extends Component {
@@ -101,7 +100,7 @@ export default class Canvas extends Component {
       <li 
         key={i} 
         className="bar" 
-        style={{ height: element * this.state.heightFactor, width: this.state.width, backgroundColor: colorMapping[i] }}
+        style={{ height: element * 3.2, width: this.state.width, backgroundColor: colorMapping[i] }}
       />
     )}
     </ul>
