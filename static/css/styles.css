@@ -113,6 +113,10 @@ select:hover, .dropdown:hover {
     margin-right: 30px;
 }
 
+.mr15-mt3 {
+	margin-right: 15px; margin-top: 3px;
+}
+
 .sliders {
     -webkit-appearance: none;
     border-radius: 5px;
