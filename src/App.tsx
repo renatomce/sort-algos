@@ -1,4 +1,4 @@
-import { Accessor, Component, createSignal, Match, Switch } from "solid-js";
+import { Component, createSignal, Match, Switch } from "solid-js";
 
 const [algorithm, setAlgorithm] = createSignal("bubble");
 
