@@ -149,7 +149,7 @@ select:hover, .dropdown:hover {
 
 .canvas {
     position: fixed;
-    bottom: 8%;
+    bottom: 50px;
 }
 
 .bar {
@@ -190,7 +190,6 @@ button#menu {
 }
 
 .bubble-info, .insertion-info, .merge-info, .heap-info {
-	display: flex;
     flex-wrap: wrap;
     align-items: top;
     justify-content: flex-start;
