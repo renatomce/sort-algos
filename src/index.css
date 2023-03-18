@@ -143,10 +143,6 @@ select:hover, .dropdown:hover {
     cursor: pointer;
 }
 
-.sliders#speed {
-    transform: scale(-1);
-}
-
 .canvas {
     position: fixed;
     bottom: 50px;

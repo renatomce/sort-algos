@@ -1,4 +1,8 @@
 import { Component, createSignal, For, Match, Switch } from "solid-js";
+import bubbleSort from "./algorithms/bubbleSort";
+import heapSort from "./algorithms/heapSort";
+import insertionSort from "./algorithms/insertionSort";
+import mergeSort from "./algorithms/mergeSort";
 
 const maxHeight = window.innerHeight - 300;
 
@@ -15,13 +19,13 @@ const createArr = () => {
 const [running, setRunning] = createSignal(false);
 
 const [size, setSize] = createSignal(window.innerWidth > 600 ? 80 : 30);
-const [speed, setSpeed] = createSignal(1);
+const [speed, setSpeed] = createSignal(3);
 const [width, setWidth] = createSignal(window.innerWidth / size());
 
 const [algorithm, setAlgorithm] = createSignal("bubble");
 const [arr, setArr] = createSignal(createArr());
 
-window.addEventListener("resize", (ev: UIEvent) => {
+window.addEventListener("resize", () => {
   setSize(window.innerWidth > 600 ? 80 : 30);
   setArr(createArr());
 });
@@ -32,7 +36,48 @@ const onSizeChange = (e: Event) => {
 };
 
 const onSpeedChange = (e: Event) => {
-  setSpeed(parseFloat((e.target as HTMLInputElement).value));
+  setSpeed(parseInt((e.target as HTMLInputElement).value));
+};
+
+const speedMap: { [key: number]: number } = {
+  1: 100,
+  2: 70,
+  3: 50,
+  4: 10,
+  5: 1,
+};
+
+const onStart = () => {
+  setRunning(true);
+  const selectedAlgorithm = algorithm();
+  const currentArr = arr();
+  let snapshots: number[][];
+  switch (selectedAlgorithm) {
+    case "bubble":
+      snapshots = bubbleSort(currentArr);
+      break;
+    case "heap":
+      snapshots = heapSort(currentArr);
+      break;
+    case "insertion":
+      snapshots = insertionSort(currentArr);
+      break;
+    case "merge":
+      snapshots = mergeSort(currentArr);
+      break;
+    default:
+      snapshots = [];
+  }
+
+  let i = 0;
+  const timerId = setInterval(() => {
+    setArr(snapshots[i]);
+    if (i !== 0) setArr(snapshots[i - 1]);
+    ++i;
+    if (i === snapshots.length) {
+      clearInterval(timerId);
+    }
+  }, speedMap[speed()]);
 };
 
 const Canvas: Component = () => {
@@ -118,8 +163,9 @@ const Header: Component = () => {
         <h2>Speed</h2>
         <input
           type='range'
-          min='.05'
-          max='5.05'
+          min='1'
+          max='5'
+          step='1'
           value={speed()}
           onChange={onSpeedChange}
           class='sliders'
@@ -130,7 +176,7 @@ const Header: Component = () => {
             <b>PAUSE</b>
           </button>
         ) : (
-          <button class='start' onClick={() => setRunning(true)}>
+          <button class='start' onClick={onStart}>
             <b>START</b>
           </button>
         )}
