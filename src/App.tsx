@@ -19,7 +19,7 @@ const createArr = () => {
 const [running, setRunning] = createSignal(false);
 
 const [size, setSize] = createSignal(window.innerWidth > 600 ? 80 : 30);
-const [speed, setSpeed] = createSignal(3);
+const [speed, setSpeed] = createSignal(4);
 const [width, setWidth] = createSignal(window.innerWidth / size());
 
 const [algorithm, setAlgorithm] = createSignal("bubble");
@@ -27,12 +27,16 @@ const [arr, setArr] = createSignal(createArr());
 
 window.addEventListener("resize", () => {
   setSize(window.innerWidth > 600 ? 80 : 30);
-  setArr(createArr());
+  if (!running()) {
+    setArr(createArr());
+  }
 });
 
 const onSizeChange = (e: Event) => {
   setSize(parseInt((e.target as HTMLInputElement).value));
-  setArr(createArr());
+  if (!running()) {
+    setArr(createArr());
+  }
 };
 
 const onSpeedChange = (e: Event) => {
@@ -47,11 +51,29 @@ const speedMap: { [key: number]: number } = {
   5: 1,
 };
 
+let currentIndex = 0;
+let snapshots: number[][];
+let timerId: number;
+
+const onReset = () => {
+  setRunning(false);
+  clearInterval(timerId);
+  setArr(createArr());
+  currentIndex = 0;
+  snapshots = [];
+};
+
+const onPause = () => {
+  setRunning(false);
+};
+
 const onStart = () => {
   setRunning(true);
+
   const selectedAlgorithm = algorithm();
   const currentArr = arr();
-  let snapshots: number[][];
+  const selectedSpeed = speed();
+
   switch (selectedAlgorithm) {
     case "bubble":
       snapshots = bubbleSort(currentArr);
@@ -69,15 +91,20 @@ const onStart = () => {
       snapshots = [];
   }
 
-  let i = 0;
-  const timerId = setInterval(() => {
-    setArr(snapshots[i]);
-    if (i !== 0) setArr(snapshots[i - 1]);
-    ++i;
-    if (i === snapshots.length) {
+  timerId = setInterval(() => {
+    setArr(snapshots[currentIndex]);
+    if (currentIndex !== 0) setArr(snapshots[currentIndex - 1]);
+    ++currentIndex;
+    if (!running()) {
       clearInterval(timerId);
     }
-  }, speedMap[speed()]);
+    if (currentIndex === snapshots.length) {
+      clearInterval(timerId);
+      setRunning(false);
+      currentIndex = 0;
+      snapshots = [];
+    }
+  }, speedMap[selectedSpeed]);
 };
 
 const Canvas: Component = () => {
@@ -172,7 +199,7 @@ const Header: Component = () => {
           id='speed'
         />
         {running() ? (
-          <button class='pause' onClick={() => setRunning(false)}>
+          <button class='pause' onClick={onPause}>
             <b>PAUSE</b>
           </button>
         ) : (
@@ -180,7 +207,7 @@ const Header: Component = () => {
             <b>START</b>
           </button>
         )}
-        <button class='restart' onClick={() => setRunning(false)}>
+        <button class='reset' onClick={onReset}>
           <b>RESET</b>
         </button>
       </nav>

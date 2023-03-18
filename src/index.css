@@ -49,7 +49,7 @@ h3 {
     margin-right: 15px;
 }
 
-nav select, button.start, button.pause, button.restart {
+nav select, button.start, button.pause, button.reset {
     background-color: #F9D341;
     border: none;
     text-align: center;
@@ -81,13 +81,13 @@ button.pause:hover {
     background-color: rgb(197, 197, 67);
 }
 
-button.restart {
+button.reset {
     background-color: rgb(202, 25, 25); 
     font-size: 16px;
     margin-left: 10px;
 }
 
-button.restart:hover {
+button.reset:hover {
     background-color:rgb(238, 32, 32);
 }
 
@@ -227,7 +227,7 @@ h2.mobile {
     font-size: 15px;
 }
 
-.restart.restart.mobile {
+.reset.reset.mobile {
     display: block;
     background-color:rgb(238, 32, 32);
     width: 120px;
@@ -271,7 +271,7 @@ h2.mobile {
         height: 60px;
     }
 
-    h2, select, .dropdown, .restart.restart, .sliders {
+    h2, select, .dropdown, .reset.reset, .sliders {
         display: none;
     }
 
